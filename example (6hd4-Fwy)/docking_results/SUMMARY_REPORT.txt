@@ -1,0 +1,14 @@
+AUTODOCK DOCKING RESULTS SUMMARY
+Generated on: Fri Sep  5 06:29:42 PM +0330 2025
+=========================================
+
+Ligand Name          | Best Energy     | Clusters   | Status         
+----------------------------------------------------------------------
+albendazole          | -6.68           | 0          | MODERATE       
+mebendazole          | -7.89           | 0          | MODERATE       
+niclosamide          | -7.50           | 0          | MODERATE       
+
+Legend:
+GOOD     - Binding energy < -6.0 kcal/mol
+MODERATE - Binding energy ≥ -6.0 kcal/mol
+FAILED   - No valid docking results

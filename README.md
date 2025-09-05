@@ -24,9 +24,12 @@ to dock for you
 - don't forget to copy the receptor related files to the directory that you wanted
 
 - save the smiles in the `smiles.txt`
-    for example : COC(=O)Nc1nc2cc(C(=O)c3ccccc3)ccc2[nH]1 mebendazole
+    for example :```txt
                   COC(=O)Nc1nc2cc(C(=O)c3ccccc3)ccc2[nH]1 mebendazole
+                  CCCSc1ccc2[nH]c(NC(=O)OC)nc2c1 albendazole
+                  O=C(Nc1ccc([N+](=O)[O-])cc1Cl)c1cc(Cl)ccc1O niclosamide
                   Smiles nameofthecompound
+                 ```
 
 
 - r.dpf should contains:
