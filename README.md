@@ -1,3 +1,13 @@
+
+╔════════════════════════════════════════════════════╗
+║         🧬 ENHANCED AUTODOCK AUTOMATION 🧬         ║
+║              with Analysis & Reporting             ║
+╚═══════════════════════════════════════════════════=╝
+
+
+
+
+
 We have two files in this repo 
 1. prepare_ligands.py 
 

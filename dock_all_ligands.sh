@@ -313,7 +313,7 @@ dock_ligand() {
 # Main script starts here
 clear
 print_header "╔══════════════════════════════════════════════════════════╗"
-print_header "║              🧬 ENHANCED AUTODOCK AUTOMATION 🧬           ║"
+print_header "║              🧬 ENHANCED AUTODOCK AUTOMATION 🧬          ║"
 print_header "║                  with Analysis & Reporting               ║"
 print_header "╚══════════════════════════════════════════════════════════╝"
 echo ""
