@@ -1,0 +1,42 @@
+REMARK  Name = prepared_ligands/pdb/mebendazole.pdb
+REMARK  4 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C_1  and  O_2
+REMARK    2  A    between atoms: O_2  and  C_3
+REMARK    3  A    between atoms: C_10  and  C_11
+REMARK    4  A    between atoms: C_11  and  C_13
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C   UNL     1      12.698  14.514  46.514  0.00  0.00    +0.406 C 
+ATOM      2  O   UNL     1      11.945  14.658  47.465  0.00  0.00    -0.226 OA
+ATOM      3  N   UNL     1      14.046  14.287  46.567  0.00  0.00    -0.221 N 
+ATOM      4  C   UNL     1      14.738  14.511  47.723  0.00  0.00    +0.203 A 
+ATOM      5  N   UNL     1      15.916  15.093  47.772  0.00  0.00    -0.214 NA
+ATOM      6  C   UNL     1      16.170  15.277  49.107  0.00  0.00    +0.091 A 
+ATOM      7  C   UNL     1      17.207  15.984  49.730  0.00  0.00    +0.041 A 
+ATOM      8  C   UNL     1      17.259  15.994  51.133  0.00  0.00    +0.024 A 
+ATOM      9  C   UNL     1      16.302  15.300  51.890  0.00  0.00    +0.014 A 
+ATOM     10  C   UNL     1      15.259  14.593  51.280  0.00  0.00    +0.028 A 
+ATOM     11  C   UNL     1      15.209  14.641  49.888  0.00  0.00    +0.067 A 
+ATOM     12  N   UNL     1      14.291  14.185  48.977  0.00  0.00    -0.326 N 
+ATOM     13  H   UNL     1      14.544  14.468  45.709  0.00  0.00    +0.161 HD
+ATOM     14  H   UNL     1      13.411  13.728  49.177  0.00  0.00    +0.169 HD
+ENDROOT
+BRANCH   1  16
+ATOM     15  C   UNL     1      11.036  15.173  44.983  0.00  0.00    +0.282 C 
+ATOM     16  O   UNL     1      12.346  14.651  45.209  0.00  0.00    -0.453 OA
+ENDBRANCH   1  16
+BRANCH   8  17
+ATOM     17  C   UNL     1      18.319  16.810  51.788  0.00  0.00    +0.193 C 
+ATOM     18  O   UNL     1      18.692  17.849  51.252  0.00  0.00    -0.287 OA
+BRANCH  17  19
+ATOM     19  C   UNL     1      18.919  16.404  53.085  0.00  0.00    +0.022 A 
+ATOM     20  C   UNL     1      19.339  17.399  53.976  0.00  0.00    +0.012 A 
+ATOM     21  C   UNL     1      19.895  17.045  55.207  0.00  0.00    +0.001 A 
+ATOM     22  C   UNL     1      20.040  15.700  55.547  0.00  0.00    +0.000 A 
+ATOM     23  C   UNL     1      19.645  14.706  54.652  0.00  0.00    +0.001 A 
+ATOM     24  C   UNL     1      19.098  15.055  53.417  0.00  0.00    +0.012 A 
+ENDBRANCH  17  19
+ENDBRANCH   8  17
+TORSDOF 3
