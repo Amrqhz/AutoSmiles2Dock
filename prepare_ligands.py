@@ -169,13 +169,6 @@ def main():
     print(f"Processing complete: {success_count}/{total_count} ligands successfully prepared")
     print(f"Positioned PDBQT files are in: {args.output_dir}/positioned/")
     print()
-    print("Now you can dock each ligand:")
-    print(f"for ligand in {args.output_dir}/positioned/*.pdbqt; do")
-    print("    cp \"$ligand\" l.pdbqt")
-    print("    rm r.dlg r.glg 2>/dev/null")
-    print("    autogrid4 -p r.gpf -l r.glg")
-    print("    autodock4 -p r.dpf -l r.dlg")
-    print("    # Process results and rename output files")
     print("done")
 
 if __name__ == "__main__":

@@ -120,7 +120,7 @@ analyze_docking_results() {
     
     # Extract binding poses summary
     echo -e "\n🧬 ${YELLOW}TOP 5 BINDING POSES:${NC}"
-    echo "   Rank | Energy (kcal/mol) | Inhibition Constant"
+    echo "   Rank | Energy (kcal/mol) |"
     echo "   -----|-------------------|--------------------"
     
     # Extract top poses - Fixed extraction
@@ -417,9 +417,10 @@ print_header "\n📁 RESULTS LOCATION:"
 echo "  📋 Main results: docking_results/*.dlg"
 echo "  📄 Summary report: docking_results/SUMMARY_REPORT.txt"
 
-print_header "\n🔍 QUICK COMMANDS FOR ANALYSIS:"
-echo -e "View summary report:     ${CYAN}cat docking_results/SUMMARY_REPORT.txt${NC}"
-echo -e "Find best energies:      ${CYAN}grep -h 'Best Binding Energy' docking_results/*.dlg | sort -k4 -n${NC}"
-echo -e "Count successful docks:  ${CYAN}ls docking_results/*.dlg | wc -l${NC}"
+
+# print_header "\n🔍 QUICK COMMANDS FOR ANALYSIS:"
+# echo -e "View summary report:     ${CYAN}cat docking_results/SUMMARY_REPORT.txt${NC}"
+# echo -e "Find best energies:      ${CYAN}grep -h 'Best Binding Energy' docking_results/*.dlg | sort -k4 -n${NC}"
+# echo -e "Count successful docks:  ${CYAN}ls docking_results/*.dlg | wc -l${NC}"
 
 print_header "\n✨ Analysis complete! Check the summary report for an overview of all results."
