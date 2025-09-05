@@ -1,13 +1,13 @@
 We have two files in this repo 
 1. prepare_ligands.py 
 
-```shell
+```bash
 chmod +x prepare_ligands.py
 python3 prepare_ligands.py smiles.txt X Y Z
 ```
 
 2. automate_ligand_preparation.sh
-```shell
+```bash
 chmod +x ./automate_ligand_preparation.sh
 ./automate_ligand_preparation.sh smiles.txt X Y Z
 ```
@@ -15,7 +15,7 @@ these 2 files is for ligand preparation
 
 first run one of theme 
 next run the dock all ligands.sh
-```shell
+```bash
 chmod +x ./dock_all_ligands.sh
 ./dock_all_ligands
 ```
@@ -24,14 +24,15 @@ to dock for you
 - don't forget to copy the receptor related files to the directory that you wanted
 
 - save the smiles in the `smiles.txt`
-    for example :```txt
-                  COC(=O)Nc1nc2cc(C(=O)c3ccccc3)ccc2[nH]1 mebendazole
-                  CCCSc1ccc2[nH]c(NC(=O)OC)nc2c1 albendazole
-                  O=C(Nc1ccc([N+](=O)[O-])cc1Cl)c1cc(Cl)ccc1O niclosamide
-                  Smiles nameofthecompound
-                 ```
+    for example :
+```txt
+COC(=O)Nc1nc2cc(C(=O)c3ccccc3)ccc2[nH]1 mebendazole
+CCCSc1ccc2[nH]c(NC(=O)OC)nc2c1 albendazole
+O=C(Nc1ccc([N+](=O)[O-])cc1Cl)c1cc(Cl)ccc1O niclosamide
+Smiles nameofthecompound
+```
 
-
+## change the .dpf and .gpf
 - r.dpf should contains:
 ```txt
 autodock_parameter_version 4.2
