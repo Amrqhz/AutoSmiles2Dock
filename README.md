@@ -1,13 +1,7 @@
 
-╔════════════════════════════════════════════════════╗
-║         🧬 ENHANCED AUTODOCK AUTOMATION 🧬         ║
-║              with Analysis & Reporting             ║
-╚═══════════════════════════════════════════════════=╝
-
-
-
-
-
+<p align="center">
+  <img src="./image.png"/>
+</p>
 We have two files in this repo 
 1. prepare_ligands.py 
 
