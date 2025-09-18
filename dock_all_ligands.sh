@@ -185,8 +185,9 @@ create_summary_report() {
     # Table header
     printf "%-20s | %-15s | %-10s | %-15s\n" "Ligand Name" "Best Energy" "Clusters" "Status" >> "$summary_file"
     echo "----------------------------------------------------------------------" >> "$summary_file"
-    
-    # Process each result file
+
+
+# Process each result file
     for dlg_file in "$results_dir"/*.dlg; do
         if [ -f "$dlg_file" ]; then
             ligand_name=$(basename "$dlg_file" .dlg)
@@ -198,12 +199,31 @@ create_summary_report() {
             fi
             [ -z "$best_energy" ] && best_energy="N/A"
             
-            # Count clusters
-            num_clusters=$(awk '/CLUSTERING HISTOGRAM/,/^$/ { if ($1 ~ /^[0-9]+$/ && NF >= 5) count++ } END { print count+0 }' "$dlg_file")
+            # Count clusters - Multiple approaches for robustness
+            num_clusters=$(awk '
+                /CLUSTERING HISTOGRAM/ { in_histogram=1; next }
+                /^$/ && in_histogram { in_histogram=0 }
+                in_histogram && /^[[:space:]]*[0-9]+[[:space:]]/ { count++ }
+                END { print count+0 }
+            ' "$dlg_file")
             
-            # Determine status
+            # Alternative method if first approach fails
+            if [ "$num_clusters" -eq 0 ]; then
+                num_clusters=$(grep -c "^[[:space:]]*[0-9][[:space:]]" "$dlg_file" 2>/dev/null || echo "0")
+            fi
+            
+            # Third approach - count lines with cluster information
+            if [ "$num_clusters" -eq 0 ]; then
+                num_clusters=$(awk '/CLUSTERING HISTOGRAM/,/^[[:space:]]*$/ {
+                    if (/^[[:space:]]*[0-9]+[[:space:]]+[0-9]+[[:space:]]+[-+]?[0-9]*\.?[0-9]+/) count++
+                } END { print count+0 }' "$dlg_file")
+            fi
+            
+            # Determine status - FIXED COMPARISON
             if [ "$best_energy" != "N/A" ] && [ "$best_energy" != "" ]; then
-                if (( $(echo "$best_energy < -6" | bc -l 2>/dev/null || echo "0") )); then
+                # Use awk for reliable floating point comparison
+                is_good=$(echo "$best_energy" | awk '{if ($1 < -6.0) print "1"; else print "0"}')
+                if [ "$is_good" = "1" ]; then
                     status="GOOD"
                 else
                     status="MODERATE"
@@ -215,6 +235,37 @@ create_summary_report() {
             printf "%-20s | %-15s | %-10s | %-15s\n" "$ligand_name" "$best_energy" "$num_clusters" "$status" >> "$summary_file"
         fi
     done
+    ####===============================this section is changed to the above
+    # # Process each result file
+    # for dlg_file in "$results_dir"/*.dlg; do
+    #     if [ -f "$dlg_file" ]; then
+    #         ligand_name=$(basename "$dlg_file" .dlg)
+            
+    #         # Extract best energy - Fixed extraction
+    #         best_energy=$(grep "DOCKED: USER    Estimated Free Energy of Binding" "$dlg_file" | head -1 | awk -F'=' '{print $2}' | awk '{print $1}')
+    #         if [ -z "$best_energy" ]; then
+    #             best_energy=$(grep "DOCKED: USER    Estimated Free Energy of Binding" "$dlg_file" | head -1 | awk '{print $9}' | sed 's/=//g')
+    #         fi
+    #         [ -z "$best_energy" ] && best_energy="N/A"
+            
+    #         # Count clusters
+    #         num_clusters=$(awk '/CLUSTERING HISTOGRAM/,/^$/ { if ($1 ~ /^[0-9]+$/ && NF >= 5) count++ } END { print count+0 }' "$dlg_file")
+            
+    #         # Determine status
+    #         if [ "$best_energy" != "N/A" ] && [ "$best_energy" != "" ]; then
+    #             if (( $(echo "$best_energy < -6" | bc -l 2>/dev/null || echo "0") )); then
+    #                 status="GOOD"
+    #             else
+    #                 status="MODERATE"
+    #             fi
+    #         else
+    #             status="FAILED"
+    #         fi
+            
+    #         printf "%-20s | %-15s | %-10s | %-15s\n" "$ligand_name" "$best_energy" "$num_clusters" "$status" >> "$summary_file"
+    #     fi
+    # done
+    ####===============================this section is changed to the above
     
     echo "" >> "$summary_file"
     echo "Legend:" >> "$summary_file"

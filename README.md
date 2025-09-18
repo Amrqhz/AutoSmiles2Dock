@@ -2,6 +2,35 @@
 <p align="center">
   <img src="./image.png"/>
 </p>
+
+
+# To automate the process
+copy this three files to the directory + smiles.txt(which should be you ligand as smiles) 
+1. Let's start from here
+
+```bash
+chmod +x prepare_ligands.py
+python3 prepare_ligands.py smiles.txt X Y Z
+```
+
+2. next run the dock all ligands.sh
+```bash
+chmod +x ./dock_all_ligands.sh
+./dock_all_ligands
+```
+
+3. next run the best poses
+```bash
+chmod +x ./extract_best_poses.sh
+./extract_best_poses.sh
+```
+to dock for you 
+
+
+</br></br>
+
+
+
 We have two files in this repo 
 1. prepare_ligands.py 
 
@@ -9,21 +38,14 @@ We have two files in this repo
 chmod +x prepare_ligands.py
 python3 prepare_ligands.py smiles.txt X Y Z
 ```
-
+OR you can use (not recommended)
 2. automate_ligand_preparation.sh
 ```bash
 chmod +x ./automate_ligand_preparation.sh
 ./automate_ligand_preparation.sh smiles.txt X Y Z
 ```
 these 2 files is for ligand preparation
-
-first run one of theme 
-next run the dock all ligands.sh
-```bash
-chmod +x ./dock_all_ligands.sh
-./dock_all_ligands
-```
-to dock for you 
+---
 
 - don't forget to copy the receptor related files to the directory that you wanted
 
