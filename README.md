@@ -5,21 +5,21 @@
 
 
 # To automate the process
-copy this three files to the directory + smiles.txt(which should be you ligand as smiles) 
-1. Let's start from here
+Copy these three files to the directory + smiles.txt(which should be you ligand as smiles) 
+1. Let's start from here and save the smiles as a .pdb and .pdbqt and even with the edited .pdbqt for the docking automation in the prepared_ligands directory
 
 ```bash
 chmod +x prepare_ligands.py
 python3 prepare_ligands.py smiles.txt X Y Z
 ```
 
-2. next run the dock all ligands.sh
+2. next run the dock all ligands.sh and see the result in the docking_result directory
 ```bash
 chmod +x ./dock_all_ligands.sh
 ./dock_all_ligands
 ```
 
-3. next run the best poses
+3. next run the extract_best_poses.sh for find the best poses and save them as .pdb in the best_poses directory
 ```bash
 chmod +x ./extract_best_poses.sh
 ./extract_best_poses.sh
@@ -38,8 +38,8 @@ We have two files in this repo
 chmod +x prepare_ligands.py
 python3 prepare_ligands.py smiles.txt X Y Z
 ```
-OR you can use (not recommended)
-2. automate_ligand_preparation.sh
+
+2. automate_ligand_preparation.sh (not recommended)
 ```bash
 chmod +x ./automate_ligand_preparation.sh
 ./automate_ligand_preparation.sh smiles.txt X Y Z
