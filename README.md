@@ -45,7 +45,11 @@ chmod +x ./automate_ligand_preparation.sh
 ./automate_ligand_preparation.sh smiles.txt X Y Z
 ```
 these 2 files is for ligand preparation
----
+
+
+
+> [!IMPORTANT]
+> be careful
 
 - don't forget to copy the receptor related files to the directory that you wanted
 
